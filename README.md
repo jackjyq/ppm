@@ -31,43 +31,43 @@ to unisntall, you need to mannually remove the last line in ~/.bashrc
 
 ## Usage:
 
-### ppm install
+### `ppm install`
 
 Install Packages from package.txt
 
 Alias: ppm i
 
-### ppm install <pkg1> <pkg2> ... <pkgn>
+### `ppm install <pkg1> <pkg2> ... <pkgn>`
 
-Install package <pkg1> <pkg2> ... <pkgn> and add to package.txt
+Install package `<pkg1> <pkg2> ... <pkgn>` and add to package.txt
 
 Alias: ppm i
 
-### ppm uninstall <pkg1> <pkg2> ... <pkgn>
+### `ppm uninstall <pkg1> <pkg2> ... <pkgn>`
 
-Uninstall package <pkg1> <pkg2> ... <pkgn> and remove from package.txt
+Uninstall package `<pkg1> <pkg2> ... <pkgn>` and remove from package.txt
 
-### ppm list
+### `ppm list`
 
 Show installed packages
 
 Alias: ppm ls
 
-### ppm start
+### `ppm start`
 
 Start main.py in current directory
 
-### ppm start <py>
+### `ppm start <py>`
 
-start python file <py> in currrent directory
+start python file `<py>` in currrent directory
 
-### ppm create-python-app <folder>
+### `ppm create-python-app <folder>`
 
-create a hello world app in <folder>
+create a hello world app in `<folder>`
 
-### ppm create-flask-app <folder>
+### `ppm create-flask-app <folder>`
 
-create a flask app in <folder>
+create a flask app in `<folder>`
 
 ## FAQ:
 
