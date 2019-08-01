@@ -1,10 +1,15 @@
 #!/bin/bash
 # Author: Jack Jiang
-# URL: https://github.com/Jiangyiqun/ppm
 # Description: 
-# ppm is a wrapper of python3, venv and pip which makes it easier to use.
+#   ppm allows you to manage python virtual environment packages as easy as using npm
+############################ configuration #############################
+AUTHOR="Jack Jiang"
+URL="https://github.com/Jiangyiqun/ppm"
+VENV_PATH="./python_modules/bin/activate"
+PACKAGE_FILENAME="package.txt"
+DEFAULT_PYTHON_FILE="main.py"
 
-########################### helper function ############################
+########################## show messages ###############################
 show_usage() {
     # show useage and exit
     echo "USAGE: ppm <command>"
@@ -13,30 +18,93 @@ show_usage() {
     echo "    Install Packages from package.txt"
     echo "ppm install <pkg1> <pkg2> ... <pkgn>"
     echo "    Install package <pkg1> <pkg2> ... <pkgn> and add to package.txt"
+    echo "ppm uninstall <pkg1> <pkg2> ... <pkgn>"
+    echo "    Uninstall package <pkg1> <pkg2> ... <pkgn> and remove from package.txt"
+    echo "ppm list"
+    echo "    Show installed packages"
     echo "ppm start"
-    echo "    Start main.py in current directory"
+    echo "    Start $DEFAULT_PYTHON_FILE in current directory"
     echo "ppm start <py>"
     echo "    start python file <py> in currrent directory"
-    echo "ppm create-flask-app <backend>"
-    echo "    create a flask app in <backend> folder"
+    echo "ppm create-python-app <folder>"
+    echo "    create a hello world app in <folder>"
+    echo "ppm create-flask-app <folder>"
+    echo "    create a flask app in <folder>"
+    exit 1
 }
 
 
+show_package_filename_not_found(){
+    echo "$PACKAGE_FILENAME does not exist"
+    exit 1
+}
+
+show_venv_path_not_found() {
+    echo "$VENV_PATH does not exist"
+    echo
+    echo "please try:"
+    echo "ppm install"
+    echo
+    exit 1
+}
+
+########################### python templetes ###########################
+add_flask_py() {
+    echo "from flask import Flask" >> $DEFAULT_PYTHON_FILE
+    echo >> $DEFAULT_PYTHON_FILE
+    echo "app = Flask(__name__)" >> $DEFAULT_PYTHON_FILE
+    echo >> $DEFAULT_PYTHON_FILE
+    echo "@app.route('/', methods = [\"GET\"])" >> $DEFAULT_PYTHON_FILE
+    echo "def hello():" >> $DEFAULT_PYTHON_FILE
+    echo "    return '<a href=\"$URL\">\\" >> $DEFAULT_PYTHON_FILE
+    echo "            This Server is generate by ppm create-flask-app </a>', 200" >> $DEFAULT_PYTHON_FILE
+    echo >> $DEFAULT_PYTHON_FILE
+    echo "if __name__ == \"__main__\":" >> $DEFAULT_PYTHON_FILE
+    echo "    app.run(host = 'localhost',port=5000, debug=True)" >> $DEFAULT_PYTHON_FILE
+}
+
+
+add_hello_py() {
+    echo "print(\"This App is create by https://github.com/Jiangyiqun/ppm\")" >> $DEFAULT_PYTHON_FILE
+}
+
+
+####################### commands implementation ########################
 install() {
     # Install Packages from package.txt
-    if [ -e "package.txt" ]
+    if [ -e $PACKAGE_FILENAME ]
     then
-        if ! [ -e "./python_modules/bin/activate" ]
+        if ! [ -e $VENV_PATH ]
         then 
             # create python_module
             python3 -m venv python_modules
         fi
-        source "./python_modules/bin/activate" &&
+        source $VENV_PATH &&
         pip install --upgrade pip &&
         python3 -m pip install -r package.txt
     else
-        echo "package.txt does not exist"
-        exit 1
+        show_package_filename_not_found
+    fi
+}
+
+
+uninstall() {
+    # Uninstall package <pkgs> and remove from package.txt
+    pkgs=$*
+    if [ -e $PACKAGE_FILENAME ]
+    then
+        if ! [ -e $VENV_PATH ]
+        then 
+            show_venv_path_not_found
+        fi
+        source $VENV_PATH &&
+        for pkg in $pkgs
+        do
+            pip uninstall $pkg
+        done
+        python -m pip freeze > package.txt
+    else
+        show_package_filename_not_found
     fi
 }
 
@@ -44,15 +112,13 @@ install() {
 install_pkgs() {
     # Install package <pkgs> and add to package.txt
     pkgs=$*
-    if [ -e "package.txt" ]
+    if [ -e $PACKAGE_FILENAME ]
     then
-        if ! [ -e "./python_modules/bin/activate" ]
+        if ! [ -e $VENV_PATH ]
         then 
-            echo "./python_modules/bin/activate does not exist"
-            echo "try ppm install first"
-            exit 1
+            show_venv_path_not_found
         fi
-        source "./python_modules/bin/activate" &&
+        source $VENV_PATH &&
         pip install --upgrade pip &&
         for pkg in $pkgs
         do
@@ -60,33 +126,45 @@ install_pkgs() {
         done
         python -m pip freeze > package.txt
     else
-        echo "package.txt does not exist"
-        exit 1
+        show_package_filename_not_found
     fi
 }
 
+
+list() {
+    # List installed packages
+    if [ -e $PACKAGE_FILENAME ]
+    then
+        if ! [ -e $VENV_PATH ]
+        then 
+            show_venv_path_not_found
+        fi
+        source $VENV_PATH &&
+        python -m pip freeze > package.txt &&
+        cat $PACKAGE_FILENAME
+    else
+        show_package_filename_not_found
+    fi
+}
 
 start() {
     # Start <py> in current directory
     py=$1
-    if [ -e "package.txt" ]
+    if [ -e $PACKAGE_FILENAME ]
     then
-        if ! [ -e "./python_modules/bin/activate" ]
+        if ! [ -e $VENV_PATH ]
         then 
-            echo "./python_modules/bin/activate does not exist"
-            echo "try ppm install first"
-            exit 1
+            show_venv_path_not_found
         fi
-        source "./python_modules/bin/activate" &&
+        source $VENV_PATH &&
         python $1
     else
-        echo "package.txt does not exist"
-        exit 1
+        show_package_filename_not_found
     fi
 }
 
 
-create_flask_app() {
+create_python_app() {
     folder=$1
     # create and cd into folder
     if ! [ -d $folder ]
@@ -94,7 +172,7 @@ create_flask_app() {
         mkdir $folder
     fi
     cd $folder
-    if [ -d "python_module" -o -e "package.txt" -o -e "main.py" ]
+    if [ -d "python_module" -o -e $PACKAGE_FILENAME -o -e "$DEFAULT_PYTHON_FILE" ]
     then
         # can not create flask app
         echo "The directory $folder contains files that could conflict"
@@ -105,10 +183,9 @@ create_flask_app() {
         python3 -m venv python_modules &&
         source ./python_modules/bin/activate &&
         pip install --upgrade pip &&
-        pip install flask &&
         python -m pip freeze > package.txt &&
         # add main.py
-        add_main_py
+        add_hello_py
         # add .gitignore
         if ! [ -e ".gitignore" ]
         then
@@ -126,61 +203,103 @@ create_flask_app() {
 }
 
 
-add_main_py() {
-    echo "from flask import Flask" >> main.py
-    echo >> main.py
-    echo "app = Flask(__name__)" >> main.py
-    echo >> main.py
-    echo "@app.route('/', methods = [\"GET\"])" >> main.py
-    echo "def hello():" >> main.py
-    echo "    return '<a href=\"https://github.com/Jiangyiqun/fullstack_tutorial\">\\" >> main.py
-    echo "            This Server is generate by ppm create-flask-app </a>', 200" >> main.py
-    echo >> main.py
-    echo "if __name__ == \"__main__\":" >> main.py
-    echo "    app.run(host = 'localhost',port=5000, debug=True)" >> main.py
+create_flask_app() {
+    folder=$1
+    # create and cd into folder
+    if ! [ -d $folder ]
+    then
+        mkdir $folder
+    fi
+    cd $folder
+    if [ -d "python_module" -o -e $PACKAGE_FILENAME -o -e "$DEFAULT_PYTHON_FILE" ]
+    then
+        # can not create flask app
+        echo "The directory $folder contains files that could conflict"
+        echo "Try using a new directory name"
+        exit 1
+    else
+        # install packages
+        python3 -m venv python_modules &&
+        source ./python_modules/bin/activate &&
+        pip install --upgrade pip &&
+        pip install flask &&
+        python -m pip freeze > package.txt &&
+        # add main.py
+        add_flask_py
+        # add .gitignore
+        if ! [ -e ".gitignore" ]
+        then
+            echo "/python_modules" >> .gitignore
+            echo "/__pycache__" >> .gitignore
+        fi
+        # show messeage
+        echo
+        echo "I suggest that you begin by typing:"
+        echo
+        echo "cd $folder"
+        echo "ppm start"
+        echo
+    fi
 }
 
 
 ########################### main function ############################
+# parsing the arguments
 if [ $# = 0 ]
 then
     show_usage
-    exit 1
-elif [ $1 == "install" ]
+elif [ $1 == "install" -o $1 == "i" ]
 then
     if [ $# = 1 ]
     then
         install
-        exit 0
     else
         install_pkgs ${*:2}  # all args except the first one
-        exit 0
+    fi
+elif [ $1 == "uninstall" ]
+then
+    if [ $# = 1 ]
+    then
+        show_usage
+    else
+        uninstall ${*:2}  # all args except the first one
+    fi
+elif [ $1 == "list" -o $1 == "ls" ]
+then
+    if [ $# = 1 ]
+    then
+        list
+    else
+        show_usage
     fi
 elif [ $1 == "start" ]
 then
     if [ $# = 1 ]
     then
-        start "main.py"
-        exit 0
+        start "$DEFAULT_PYTHON_FILE"
     elif [ $# = 2 ]
     then
         start $2
-        exit 0
     else
         show_usage
-        exit 1
+    fi
+elif [ $1 == "create-python-app" ]
+then
+    if [ $# = 2 ]
+    then
+        create_python_app $2
+    else
+        show_usage
     fi
 elif [ $1 == "create-flask-app" ]
 then
     if [ $# = 2 ]
     then
         create_flask_app $2
-        exit 0
     else
         show_usage
-        exit 1
     fi
 else
     show_usage
-    exit 1
 fi
+exit 0
