@@ -7,6 +7,46 @@ ppm allows you to manage python virtual environment packages as easy as using np
 
 ppm is just a wrapper of [python venv](https://docs.python.org/3/library/venv.html) module and [pip](https://pypi.org/project/pip/).
 
+# Example
+
+### Install Python virtual environment modules from package.txt
+
+```python
+python3 -m venv python_modules          # create python environment
+source ./python_modules/bin/activate    # activate python environment
+python3 -m pip install -r package.txt   # install python modules from package.txt
+deactivate                              # deactivate python environment
+```
+
+```shell
+ppm install
+```
+
+### Install new Python virtual environment modules and save it to package.txt
+
+```shell
+python3 -m venv python_modules          # create python environment
+pip install new-package					# install new-package
+python -m pip freeze > package.txt		# save new-package to package.txt
+deactivate      
+```
+
+```
+ppm install new-package
+```
+
+### Run main.py with Python virtual environment modules
+
+```shell
+source ./python_modules/bin/activate    # activate python environment
+python main.py                          # run back-end server
+deactivate                              # deactivate python environment
+```
+
+```
+ppm start
+```
+
 # Setup
 
 ppm file is self-contained, you only need one single file to run. However, I recommend you to clone the repository in order to get the update.
@@ -31,7 +71,7 @@ git clone https://github.com/Jiangyiqun/ppm.git && cd ppm && echo "export PATH=\
 
 To uninstall, you need to manually remove the last line in `~/.bashrc`
 
-# Documentation
+# Commands
 
 ![](./badges/-planned-yellow.svg)
 ![](./badges/-implemented-blue.svg)
