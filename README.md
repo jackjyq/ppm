@@ -11,45 +11,40 @@ ppm is just a wrapper of [python venv](https://docs.python.org/3/library/venv.ht
 [![GitHub forks](https://img.shields.io/github/forks/Jiangyiqun/ppm)](https://github.com/Jiangyiqun/ppm/network)
 [![GitHub issues](https://img.shields.io/github/issues/Jiangyiqun/ppm)](https://github.com/Jiangyiqun/ppm/issues)
 
+
+
 # Example
 
-### Install Python virtual environment modules from package.txt
+Using ppm to manage python virutual environment is easy
 
-```python
+```shell
+ppm install                 # install python modules from package.txt
+ppm install new-package     # install new-package and save it to package.txt
+ppm start                   # run main.py with Python virtual environment modules
+```
+
+instead of the verbose commands of python venv module
+
+```shell
+# install python modules from package.txt
 python3 -m venv python_modules          # create python environment
 source ./python_modules/bin/activate    # activate python environment
 python3 -m pip install -r package.txt   # install python modules from package.txt
 deactivate                              # deactivate python environment
-```
 
-```shell
-ppm install
-```
-
-### Install new Python virtual environment modules and save it to package.txt
-
-```shell
-python3 -m venv python_modules          # create python environment
-pip install new-package					# install new-package
-python -m pip freeze > package.txt		# save new-package to package.txt
-deactivate      
-```
-
-```
-ppm install new-package
-```
-
-### Run main.py with Python virtual environment modules
-
-```shell
+# install new-package and save it to package.txt
 source ./python_modules/bin/activate    # activate python environment
-python main.py                          # run back-end server
+pip install new-package                 # install new-package
+python -m pip freeze > package.txt      # save new-package to package.txt
+deactivate                              # deactivate python environment
+
+# run main.py with Python virtual environment modules
+source ./python_modules/bin/activate    # activate python environment
+python main.py                          # run main.py
 deactivate                              # deactivate python environment
 ```
 
-```
-ppm start
-```
+
 
 # Setup
 
@@ -61,19 +56,15 @@ ppm file is self-contained, you only need one single file to run. However, I rec
 git clone https://github.com/Jiangyiqun/ppm.git && cd ppm && echo "export PATH=\"\$PATH:$(pwd)\"" >> ~/.bashrc && source ~/.bashrc
 ```
 
+To uninstall, just manually remove the last line in `~/.bashrc`
+
 ### Method 2: Symbolic link
 
 ```shell
 git clone https://github.com/Jiangyiqun/ppm.git && cd ppm && sudo ln -s $(pwd)/ppm /usr/bin/ppm
 ```
 
-To uninstall, just type
-
-```shell
-sudo rm /usr/bin/ppm
-```
-
-To uninstall, you need to manually remove the last line in `~/.bashrc`
+To uninstall, just type `sudo rm /usr/bin/ppm`
 
 # Commands
 
@@ -170,6 +161,8 @@ create a hello world app in `<folder>`
 
 create a flask app in `<folder>`
 
+
+
 # FAQ:
 
 ### 1. permission denied
@@ -184,6 +177,6 @@ Install either [Anaconda (Python 3)](https://www.anaconda.com/distribution/#down
 
 or [python venv](https://docs.python.org/3/library/venv.html) and [pip](https://pypi.org/project/pip/)
 
-### 3. System Compatibility:
+### 3. system compatibility:
 
 Does not support Windows
