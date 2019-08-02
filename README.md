@@ -7,6 +7,10 @@ ppm allows you to manage python virtual environment packages as easy as using np
 
 ppm is just a wrapper of [python venv](https://docs.python.org/3/library/venv.html) module and [pip](https://pypi.org/project/pip/).
 
+[![GitHub stars](https://img.shields.io/github/stars/Jiangyiqun/ppm)](https://github.com/Jiangyiqun/ppm/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/Jiangyiqun/ppm)](https://github.com/Jiangyiqun/ppm/network)
+[![GitHub issues](https://img.shields.io/github/issues/Jiangyiqun/ppm)](https://github.com/Jiangyiqun/ppm/issues)
+
 # Example
 
 ### Install Python virtual environment modules from package.txt
@@ -128,7 +132,7 @@ ___
 
 Uninstall package `<pkg1> <pkg2> ... <pkgn>` and remove from package.txt
 
-## list (**Alias**: ls)
+## list (Alias: ls)
 
 ### `ppm list`
 
