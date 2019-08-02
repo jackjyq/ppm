@@ -51,7 +51,13 @@ ppm start
 
 ppm file is self-contained, you only need one single file to run. However, I recommend you to clone the repository in order to get the update.
 
-### Method 1: Symbolic link
+### Method 1: Add to $PATH
+
+```shell
+git clone https://github.com/Jiangyiqun/ppm.git && cd ppm && echo "export PATH=\"\$PATH:$(pwd)\"" >> ~/.bashrc && source ~/.bashrc
+```
+
+### Method 2: Symbolic link
 
 ```shell
 git clone https://github.com/Jiangyiqun/ppm.git && cd ppm && sudo ln -s $(pwd)/ppm /usr/bin/ppm
@@ -61,12 +67,6 @@ To uninstall, just type
 
 ```shell
 sudo rm /usr/bin/ppm
-```
-
-### Method 2: Add to $PATH
-
-```shell
-git clone https://github.com/Jiangyiqun/ppm.git && cd ppm && echo "export PATH=\"\$PATH:$(pwd)\"" >> ~/.bashrc && source ~/.bashrc
 ```
 
 To uninstall, you need to manually remove the last line in `~/.bashrc`
@@ -80,7 +80,9 @@ To uninstall, you need to manually remove the last line in `~/.bashrc`
 
 ## Init
 
-### `ppm init` ![](./badges/-planned-yellow.svg)
+### `ppm init`
+
+![](./badges/-planned-yellow.svg)
 
 create python virtual environment in current directory
 
@@ -88,23 +90,31 @@ ___
 
 ## Start
 
-### `ppm start` ![](./badges/-implemented-blue.svg)
+### `ppm start`
+
+![](./badges/-implemented-blue.svg)
 
 Start main.py in current directory
 
-### `ppm start <py>` ![](./badges/-implemented-blue.svg)
+### `ppm start <py>`
+
+![](./badges/-implemented-blue.svg)
 
 start python file `<py>` in currrent directory
 
 ___
 
-## Install (**Alias**: i)
+## Install (Alias: i)
 
-### `ppm install` ![](./badges/-implemented-blue.svg)
+### `ppm install`
+
+![](./badges/-implemented-blue.svg)
 
 Install Packages from package.txt
 
-### `ppm install <pkg1> <pkg2> ... <pkgn>` ![](./badges/-implemented-blue.svg)
+### `ppm install <pkg1> <pkg2> ... <pkgn>`
+
+![](./badges/-implemented-blue.svg)
 
 Install package `<pkg1> <pkg2> ... <pkgn>` and add to package.txt
 
@@ -112,13 +122,17 @@ ___
 
 ## Uninstall
 
-### `ppm uninstall <pkg1> <pkg2> ... <pkgn>` ![](./badges/-implemented-blue.svg)
+### `ppm uninstall <pkg1> <pkg2> ... <pkgn>`
+
+![](./badges/-implemented-blue.svg)
 
 Uninstall package `<pkg1> <pkg2> ... <pkgn>` and remove from package.txt
 
 ## list (**Alias**: ls)
 
-### `ppm list` ![](./badges/-implemented-blue.svg)
+### `ppm list`
+
+![](./badges/-implemented-blue.svg)
 
 Show installed packages
 
@@ -126,31 +140,41 @@ ___
 
 ## Update
 
-### `ppm update` ![](./badges/-planned-yellow.svg)
+### `ppm update`
+
+![](./badges/-planned-yellow.svg)
 
 Update all installed packages and synchronize it with package.txt
 
-### `ppm update <pkg1> <pkg2> ... <pkgn>` ![](./badges/-planned-yellow.svg)
+### `ppm update <pkg1> <pkg2> ... <pkgn>`
+
+![](./badges/-planned-yellow.svg)
 
 Update package `<pkg1> <pkg2> ... <pkgn>` and synchronize it with package.txt
 
 ___
 
-## list (**Alias**: ls)
+## list (Alias: ls)
 
-### `ppm list` ![](./badges/-planned-yellow.svg)
+### `ppm list`
+
+![](./badges/-planned-yellow.svg)
 
 Show installed packages
 
 ___
 
-## Create App
+## Create Apps
 
-### `ppm create-python-app <folder>` ![](./badges/-deprecated-red.svg)
+### `ppm create-python-app <folder>`
+
+![](./badges/-deprecated-red.svg)
 
 create a hello world app in `<folder>`
 
-### `ppm create-flask-app <folder>` ![](./badges/-implemented-blue.svg)
+### `ppm create-flask-app <folder>`
+
+![](./badges/-implemented-blue.svg)
 
 create a flask app in `<folder>`
 
