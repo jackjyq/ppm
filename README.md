@@ -90,8 +90,6 @@ To uninstall, you need to manually remove the last line in `~/.bashrc`
 
 create python virtual environment in current directory
 
-___
-
 ## Start
 
 ### `ppm start`
@@ -106,8 +104,6 @@ Start main.py in current directory
 
 start python file `<py>` in currrent directory
 
-___
-
 ## Install (Alias: i)
 
 ### `ppm install`
@@ -121,8 +117,6 @@ Install Packages from package.txt
 ![](./badges/-implemented-blue.svg)
 
 Install package `<pkg1> <pkg2> ... <pkgn>` and add to package.txt
-
-___
 
 ## Uninstall
 
@@ -140,8 +134,6 @@ Uninstall package `<pkg1> <pkg2> ... <pkgn>` and remove from package.txt
 
 Show installed packages
 
-___
-
 ## Update
 
 ### `ppm update`
@@ -156,8 +148,6 @@ Update all installed packages and synchronize it with package.txt
 
 Update package `<pkg1> <pkg2> ... <pkgn>` and synchronize it with package.txt
 
-___
-
 ## list (Alias: ls)
 
 ### `ppm list`
@@ -165,8 +155,6 @@ ___
 ![](./badges/-planned-yellow.svg)
 
 Show installed packages
-
-___
 
 ## Create Apps
 
