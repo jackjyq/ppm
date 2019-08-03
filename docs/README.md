@@ -1,4 +1,6 @@
-# ppm —— Python (venv) Package Manager
+# ppm Documentation
+
+![](./img/logo.png)
 
 ppm allows you to manage Python virtual environment packages as easy as using [npm](https://docs.npmjs.com/);
 
@@ -8,7 +10,6 @@ ppm is just a wrapper of [Python venv](https://docs.Python.org/3/library/venv.ht
 [![GitHub forks](https://img.shields.io/github/forks/Jiangyiqun/ppm)](https://github.com/Jiangyiqun/ppm/network)
 [![GitHub issues](https://img.shields.io/github/issues/Jiangyiqun/ppm)](https://github.com/Jiangyiqun/ppm/issues)
 [![GitHub license](https://img.shields.io/github/license/Jiangyiqun/ppm)](https://github.com/Jiangyiqun/ppm)
-
 
 ## Example
 
@@ -72,7 +73,21 @@ ppm start <Python_file> [<arguments>]
 ppm uninstall <package> [<package> ... <package>]
 ```
 
-## FAQ:
+## Configuration
+
+The configuration is saved in `package.txt`, here is the default value
+
+```shell
+DOCS="https://jiangyiqun.github.io/ppm/"
+MAIN_FILE="main.py"
+DEFAULT_ARGS=""
+PACKAGE_LIST="package-lock.txt"
+PACKAGE_PATH="python_modules"
+```
+
+Read [configuration docs](./configuration.html) for detail.
+
+## Trouble shooting:
 
 ### 1. permission denied
 

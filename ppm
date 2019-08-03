@@ -30,6 +30,10 @@ parse_configuration() {
     if [ -e $CONFIG_FILE ]; then
         source $CONFIG_FILE
     fi
+    if [ $CONFIG_FILE == $PACKAGE_LIST ]; then
+        echo "PACKAGE_LIST can not be $CONFIG_FILE"
+        exit 1
+    fi
     PYTHON_PATH="./$PACKAGE_PATH/bin/activate"
     DEFAULT_CMD="$MAIN_FILE $DEFAULT_ARGS"
 }
