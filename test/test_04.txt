@@ -1,0 +1,5 @@
+DOCS="https://jiangyiqun.github.io/ppm/"
+MAIN_FILE="main.py"
+DEFAULT_ARGS=""
+PACKAGE_LIST="requirment.txt"
+PACKAGE_PATH="venv"

@@ -27,8 +27,9 @@ show_usage() {
 
 
 parse_configuration() {
-    if [ -e $CONFIG_FILE ]; then
-        source $CONFIG_FILE
+    CONFIG_PATH="$(pwd)/$CONFIG_FILE"
+    if [ -e $CONFIG_PATH ]; then
+        source $CONFIG_PATH
     fi
     if [ $CONFIG_FILE == $PACKAGE_LIST ]; then
         echo "PACKAGE_LIST can not be $CONFIG_FILE"
