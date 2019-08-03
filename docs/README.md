@@ -1,6 +1,6 @@
 # ppm Documentation
 
-![](./img/logo.png)
+![](./images/logo.png)
 
 ppm allows you to manage Python virtual environment packages as easy as using [npm](https://docs.npmjs.com/);
 
@@ -53,21 +53,21 @@ just manually remove the last line in `~/.bashrc` or `~/.zshrc`
 
 ## Commands
 
-### [install](./install.html)
+### [install](./articles/install.html)
 
 ```shell
 ppm install
 ppm install <package> [<package> ... <package>]
 ```
 
-### [start](./start.html)
+### [start](./articles/start.html)
 
 ```shell
 ppm start
 ppm start <Python_file> [<arguments>]
 ```
 
-### [uninstall](./uninstall.html)
+### [uninstall](./articles/uninstall.html)
 
 ```shell
 ppm uninstall <package> [<package> ... <package>]
@@ -85,7 +85,7 @@ PACKAGE_LIST="package-lock.txt"
 PACKAGE_PATH="python_modules"
 ```
 
-Read [configuration docs](./configuration.html) for detail.
+Read [configuration docs](./articles/configuration.html) for detail.
 
 ## Trouble shooting:
 
