@@ -1,34 +1,40 @@
 # CONFIGURATION
 
-You can edit `package.txt` to change the default configuration 
+## Description
 
-## `main.py`
+You can edit `package.txt` to change the default configuration
+
+### main.py
 
 The default main Python file. When you run `ppm start`, it will run `MAIN_FILE` with `DEFAULT_ARGS` in current virtual environment
-
-### configuration
 
 ```shell
 MAIN_FILE="main.py"
 DEFAULT_ARGS=""
 ```
 
-## `python_modules/`
+### python_modules/
 
 The installed Python packages of the virtual environment
-
-### configuration
 
 ```shell
 PACKAGE_PATH="python_modules"
 ```
 
-## `package-lock.txt`
+### package-lock.txt
 
 The list of python packages of the virtual environment
 
-### configuration
-
 ```shell
 PACKAGE_LIST="package-lock.txt"
+```
+
+## Example
+
+if you want to use ppm to manage an existing virtual environment create by venv, you may want to change `package.txt` like this:
+
+```shell
+MAIN_FILE="view.py"
+PACKAGE_LIST="requirement.txt"
+PACKAGE_PATH="venv"
 ```
