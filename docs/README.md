@@ -1,6 +1,7 @@
 # ppm Documentation
 
-![](./images/logo.png)
+[![](./images/logo.png)](./articles/logo.html)
+[![](https://img.shields.io/badge/managed%20by-ppm-red)](./articles/logo.html)
 
 ppm allows you to manage Python virtual environment packages as easy as using [npm](https://docs.npmjs.com/);
 
@@ -46,16 +47,11 @@ git clone https://github.com/Jiangyiqun/ppm.git && cd ppm && echo "export PATH=\
 git clone https://github.com/Jiangyiqun/ppm.git && cd ppm && echo "export PATH=\"\$PATH:$(pwd)\"" >> ~/.zshrc && source ~/.zshrc
 ```
 
-### updater
-
-```shell
-git pull
-```
-
 ### uninstall
 
-just manually remove the last line in `~/.bashrc` or `~/.zshrc`
+Remove the last line in `~/.bashrc` or `~/.zshrc`
 
+### [trouble shooting](./articles/trouble_shooting.html)
 
 ## Commands
 
@@ -79,9 +75,7 @@ ppm start <Python_file> [<arguments>]
 ppm uninstall <package> [<package> ... <package>]
 ```
 
-## Configuration
-
-The configuration is saved in `package.txt`, here is the default value
+## [Configuration](./articles/configuration.html)
 
 ```shell
 DOCS="https://jiangyiqun.github.io/ppm/"
@@ -90,22 +84,3 @@ DEFAULT_ARGS=""
 PACKAGE_LIST="package-lock.txt"
 PACKAGE_PATH="python_modules"
 ```
-
-Read [configuration docs](./articles/configuration.html) for detail.
-
-## Trouble shooting:
-
-### 1. permission denied
-
-```shell
-chmod +x ppm
-```
-
-### 2. No module named venv / command not found: pip
-
-Install **either** [Anaconda (Python 3)](https://www.anaconda.com/distribution/#download-section)
-**or** [Python venv](https://docs.Python.org/3/library/venv.html) and [pip](https://pypi.org/project/pip/)
-
-### 3. system compatibility:
-
-Does not support Windows
