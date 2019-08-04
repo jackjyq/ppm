@@ -1,16 +1,16 @@
 # ppm Documentation
 
 [![](./images/logo.png)](./articles/logo.html)
-[![](https://img.shields.io/badge/managed%20by-ppm-red)](./articles/logo.html)
 
 ppm allows you to manage Python virtual environment packages as easy as using [npm](https://docs.npmjs.com/);
 
 ppm is just a wrapper of [Python venv](https://docs.Python.org/3/library/venv.html) module and [pip](https://pypi.org/project/pip/).
 
+[![](https://img.shields.io/badge/managed%20by-ppm-red)](./articles/logo.html)
 [![GitHub stars](https://img.shields.io/github/stars/Jiangyiqun/ppm)](https://github.com/Jiangyiqun/ppm/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/Jiangyiqun/ppm)](https://github.com/Jiangyiqun/ppm/network)
 [![GitHub issues](https://img.shields.io/github/issues/Jiangyiqun/ppm)](https://github.com/Jiangyiqun/ppm/issues)
-[![GitHub license](https://img.shields.io/github/license/Jiangyiqun/ppm)](https://github.com/Jiangyiqun/ppm)
+<!-- [![GitHub license](https://img.shields.io/github/license/Jiangyiqun/ppm)](https://github.com/Jiangyiqun/ppm) -->
 
 ## Example
 
