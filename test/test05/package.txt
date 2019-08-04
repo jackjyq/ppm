@@ -1,0 +1,5 @@
+DOCS="https://jiangyiqun.github.io/ppm/"
+MAIN_FILE="start.py"
+DEFAULT_ARGS="flask flask-cors"
+PACKAGE_LIST="requirement.txt"
+PACKAGE_PATH="venv"

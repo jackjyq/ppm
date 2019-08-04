@@ -60,8 +60,7 @@ check_and_add_configuration() {
 
 check_and_add_main() {
     if ! [ -e $MAIN_FILE ]; then
-        echo "import sys" >> $MAIN_FILE
-        echo "print('Your Python Interpreter is:\n', sys.executable)" >> $MAIN_FILE
+        echo "print('Hello World!')" >> $MAIN_FILE
     fi
 }
 

@@ -1,7 +1,2 @@
 .vscode
 .DS_Store
-
-python_modules
-package.txt
-package-lock.txt
-main.py
