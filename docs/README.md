@@ -47,6 +47,12 @@ git clone https://github.com/Jiangyiqun/ppm.git && cd ppm && echo "export PATH=\
 git clone https://github.com/Jiangyiqun/ppm.git && cd ppm && echo "export PATH=\"\$PATH:$(pwd)\"" >> ~/.zshrc && source ~/.zshrc
 ```
 
+**to know which shell you are using**
+
+```shell
+echo $SHELL
+```
+
 ### uninstall
 
 Remove the last line in `~/.bashrc` or `~/.zshrc`
