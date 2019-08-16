@@ -33,7 +33,7 @@ deactivate                                   # deactivate Python environment
 
 ppm file is self-contained, you only need one single file to run. However, I recommend you to clone the repository in order to get the update.
 
-### install
+### install (Linux or macOS)
 
 **bash user(default)**
 
@@ -51,6 +51,12 @@ git clone https://github.com/Jiangyiqun/ppm.git && cd ppm && echo "export PATH=\
 
 ```shell
 echo $SHELL
+```
+
+**test installation by typing**
+
+```shell
+ppm
 ```
 
 ### uninstall
