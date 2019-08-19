@@ -34,6 +34,7 @@ show_usage() {
 
 
 parse_configuration() {
+    PPM_PATH=$(dirname $0)
     CONFIG_PATH="$(pwd)/$CONFIG_FILE"
     if [ -e $CONFIG_PATH ]; then
         source $CONFIG_PATH
@@ -44,8 +45,8 @@ parse_configuration() {
     fi
     PYTHON_PATH="./$PACKAGE_PATH/bin/activate"
     DEFAULT_CMD="$MAIN_FILE $DEFAULT_ARGS"
-    VERSION_NUMBER=`git log --oneline | wc -l | sed -e 's/^[ \t]*//'`
-    VERSION_TIME=`git log -1 --pretty=format:"%ad"`
+    VERSION_NUMBER=`cd $PPM_PATH && git log --oneline | wc -l | sed -e 's/^[ \t]*//'`
+    VERSION_TIME=`cd $PPM_PATH && git log -1 --pretty=format:"%ad"`
 }
 
 
@@ -160,7 +161,7 @@ show_version() {
 
 
 upgrade() {
-    git pull &&
+    ( cd $PPM_PATH && git pull ) &&
     show_version
 }
 
