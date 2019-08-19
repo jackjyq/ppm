@@ -8,6 +8,8 @@ ppm is just a wrapper of [Python venv](https://docs.Python.org/3/library/venv.ht
 [![GitHub forks](https://img.shields.io/github/forks/Jiangyiqun/ppm)](https://github.com/Jiangyiqun/ppm/network)
 [![GitHub issues](https://img.shields.io/github/issues/Jiangyiqun/ppm)](https://github.com/Jiangyiqun/ppm/issues)
 <!-- [![GitHub license](https://img.shields.io/github/license/Jiangyiqun/ppm)](https://github.com/Jiangyiqun/ppm) -->
+![](https://img.shields.io/badge/compatible-macOS-brightgreen)
+![](https://img.shields.io/badge/compatible-Linux-orange)
 
 ## [Example](./articles/example.html)
 
