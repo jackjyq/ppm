@@ -83,7 +83,7 @@ assert_valid_venv() {
         echo
         exit 1
     fi
-    if ! [ -e $PYTHON_PATH ]; then 
+    if ! [ -e $PYTHON_PATH ]; then
         echo "$PYTHON_PATH does not exist"
         echo
         echo "To fix, please try:"
@@ -103,7 +103,7 @@ install() {
         check_and_add_configuration
         check_and_add_main
     fi
-    if ! [ -e $PYTHON_PATH ]; then 
+    if ! [ -e $PYTHON_PATH ]; then
         python3 -m venv $PACKAGE_PATH
     fi
     source $PYTHON_PATH &&
@@ -178,7 +178,7 @@ elif [ $1 == "uninstall" -o $1 == "u" ]; then
         uninstall ${*:2}    # all args except the first one
     fi
 # bad argument
-else    
+else
     show_usage
 fi
 

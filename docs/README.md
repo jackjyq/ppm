@@ -29,41 +29,19 @@ python3 -m pip install -r package-lock.txt   # install Python modules from packa
 deactivate                                   # deactivate Python environment
 ```
 
-## Setup
-
-ppm file is self-contained, you only need one single file to run. However, I recommend you to clone the repository in order to get the update.
-
-### install (Linux or macOS)
+## [Setup](./articles/setup.html)
 
 **bash user(default)**
 
 ```shell
-git clone https://github.com/Jiangyiqun/ppm.git && cd ppm && echo "export PATH=\"\$PATH:$(pwd)\"" >> ~/.bashrc && source ~/.bashrc
+git clone https://github.com/Jiangyiqun/ppm.git && cd ppm && echo "export PATH=\"\$PATH:$(pwd)\"" >> $HOME/.bashrc && source $HOME/.bashrc
 ```
 
 **zsh user**
 
 ```shell
-git clone https://github.com/Jiangyiqun/ppm.git && cd ppm && echo "export PATH=\"\$PATH:$(pwd)\"" >> ~/.zshrc && source ~/.zshrc
+git clone https://github.com/Jiangyiqun/ppm.git && cd ppm && echo "export PATH=\"\$PATH:$(pwd)\"" >> $HOME/.zshrc && source $HOME/.zshrc
 ```
-
-**to know which shell you are using**
-
-```shell
-echo $SHELL
-```
-
-**test installation by typing**
-
-```shell
-ppm
-```
-
-### uninstall
-
-Remove the last line in `~/.bashrc` or `~/.zshrc`
-
-### [trouble shooting](./articles/trouble_shooting.html)
 
 ## Commands
 
