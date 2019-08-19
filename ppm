@@ -4,7 +4,7 @@
 # hardcode items
 CONFIG_FILE="package.txt"
 # configurable items
-DOCS="https://jiangyiqun.github.io/ppm/"
+DOCS="http://ppm.jackjyq.com"
 MAIN_FILE="main.py"
 DEFAULT_ARGS=""
 PACKAGE_LIST="package-lock.txt"
