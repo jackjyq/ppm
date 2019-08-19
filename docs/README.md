@@ -19,7 +19,7 @@ To manage Python virtual environment, using ppm(left) is easier than traditional
 
 ## [Setup](./articles/setup.html)
 
-**bash user(default)**
+**bash user**
 
 ```shell
 git clone https://github.com/Jiangyiqun/ppm.git && cd ppm && echo "export PATH=\"\$PATH:$(pwd)\"" >> $HOME/.bashrc && source $HOME/.bashrc
