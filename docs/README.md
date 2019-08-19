@@ -14,6 +14,8 @@ ppm is just a wrapper of [Python venv](https://docs.Python.org/3/library/venv.ht
 
 ## Example
 
+![](./images/commands.png)
+
 Using ppm to manage Python virtual environment is easy
 
 ```shell
