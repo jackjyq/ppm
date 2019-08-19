@@ -4,12 +4,12 @@ ppm allows you to manage Python virtual environment packages as easy as using [n
 
 ppm is just a wrapper of [Python venv](https://docs.Python.org/3/library/venv.html) module and [pip](https://pypi.org/project/pip/).
 
+![](https://img.shields.io/badge/compatible-macOS-brightgreen)
+![](https://img.shields.io/badge/compatible-Linux-orange)
 [![GitHub stars](https://img.shields.io/github/stars/Jiangyiqun/ppm)](https://github.com/Jiangyiqun/ppm/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/Jiangyiqun/ppm)](https://github.com/Jiangyiqun/ppm/network)
 [![GitHub issues](https://img.shields.io/github/issues/Jiangyiqun/ppm)](https://github.com/Jiangyiqun/ppm/issues)
 <!-- [![GitHub license](https://img.shields.io/github/license/Jiangyiqun/ppm)](https://github.com/Jiangyiqun/ppm) -->
-![](https://img.shields.io/badge/compatible-macOS-brightgreen)
-![](https://img.shields.io/badge/compatible-Linux-orange)
 
 ## [Example](./articles/example.html)
 
@@ -31,26 +31,18 @@ git clone https://github.com/Jiangyiqun/ppm.git && cd ppm && echo "export PATH=\
 git clone https://github.com/Jiangyiqun/ppm.git && cd ppm && echo "export PATH=\"\$PATH:$(pwd)\"" >> $HOME/.zshrc && source $HOME/.zshrc
 ```
 
-## Usage
-
-### [install](./articles/install.html)
+## [Usage](./articles/usage.html)
 
 ```shell
+USAGE: ppm <command>
+
+ppm --version
 ppm install
 ppm install <package> [<package> ... <package>]
-```
-
-### [start](./articles/start.html)
-
-```shell
 ppm start
 ppm start <Python_file> [<arguments>]
-```
-
-### [uninstall](./articles/uninstall.html)
-
-```shell
 ppm uninstall <package> [<package> ... <package>]
+ppm upgrade
 ```
 
 ## [Configuration](./articles/configuration.html)
@@ -65,5 +57,5 @@ PACKAGE_PATH="python_modules"
 
 ## [Logo and Badge](./articles/logo.html)
 
-[![](./images/logo.png)](http://ppm.jackjyq.com/)
+[![](http://ppm.jackjyq.com/images/logo.png)](http://ppm.jackjyq.com/)
 [![](https://img.shields.io/badge/managed%20by-ppm-red)](http://ppm.jackjyq.com/)

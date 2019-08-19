@@ -1,10 +1,14 @@
 # SETUP
 
+[![](http://ppm.jackjyq.com/images/logo.png)](http://ppm.jackjyq.com/)
+[![](https://img.shields.io/badge/managed%20by-ppm-red)](http://ppm.jackjyq.com/)
+
 ## Requirements
 
 - MacOS **OR** Linux
 - [Anaconda (Python 3)](https://www.anaconda.com/distribution/#download-section) or 
 **OR** ([Python venv](https://docs.Python.org/3/library/venv.html) and [pip](https://pypi.org/project/pip/))
+- bash **OR** zsh
 
 ## Install
 
@@ -18,7 +22,7 @@ cd $HOME
 
 ### 2. run installation script
 
-**bash user(default)**
+**bash user**
 
 ```shell
 git clone https://github.com/Jiangyiqun/ppm.git && cd ppm && echo "export PATH=\"\$PATH:$(pwd)\"" >> $HOME/.bashrc && source $HOME/.bashrc
@@ -33,7 +37,7 @@ git clone https://github.com/Jiangyiqun/ppm.git && cd ppm && echo "export PATH=\
 ### 3. test installation
 
 ```shell
-ppm
+ppm --version
 ```
 
 ## Uninstall

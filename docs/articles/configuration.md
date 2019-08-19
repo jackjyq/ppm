@@ -1,5 +1,8 @@
 # CONFIGURATION
 
+[![](http://ppm.jackjyq.com/images/logo.png)](http://ppm.jackjyq.com/)
+[![](https://img.shields.io/badge/managed%20by-ppm-red)](http://ppm.jackjyq.com/)
+
 ## Description
 
 You can edit `package.txt` to change the default configuration

@@ -1,5 +1,8 @@
 # EXAMPLE
 
+[![](http://ppm.jackjyq.com/images/logo.png)](http://ppm.jackjyq.com/)
+[![](https://img.shields.io/badge/managed%20by-ppm-red)](http://ppm.jackjyq.com/)
+
 ```shell
 ppm i
 ```
