@@ -8,11 +8,9 @@
 - MacOS **OR** Linux
 - [Anaconda (Python 3)](https://www.anaconda.com/distribution/#download-section) or 
 **OR** ([Python venv](https://docs.Python.org/3/library/venv.html) and [pip](https://pypi.org/project/pip/))
-- bash **OR** zsh
+- git
 
 ## Install
-
-ppm file is self-contained, you only need one single file to run. However, I recommend you to clone the repository in order to get the update.
 
 ### 1. cd whatever directory you want to put ppm into
 
