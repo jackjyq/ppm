@@ -4,29 +4,37 @@
 # hardcode items
 CONFIG_FILE="package.txt"
 # configurable items
-DOCS="https://jiangyiqun.github.io/ppm/"
+DOCS="http://ppm.jackjyq.com"
 MAIN_FILE="main.py"
 DEFAULT_ARGS=""
 PACKAGE_LIST="package-lock.txt"
 PACKAGE_PATH="python_modules"
-
+# auto generated items
+CONFIG_PATH=""
+PYTHON_PATH=""
+DEFAULT_CMD=""
+VERSION_NUMBER=""
+VERSION_TIME=""
 
 ######################### helper functions #############################
 show_usage() {
     # show usage and exit
     echo "USAGE: ppm <command>"
     echo
+    echo "ppm --version"
     echo "ppm install"
     echo "ppm install <package> [<package> ... <package>]"
     echo "ppm start"
     echo "ppm start <Python_file> [<arguments>]"
     echo "ppm uninstall <package> [<package> ... <package>]"
+    echo "ppm upgrade"
     echo
     exit 1
 }
 
 
 parse_configuration() {
+    PPM_PATH=$(dirname $0)
     CONFIG_PATH="$(pwd)/$CONFIG_FILE"
     if [ -e $CONFIG_PATH ]; then
         source $CONFIG_PATH
@@ -37,6 +45,8 @@ parse_configuration() {
     fi
     PYTHON_PATH="./$PACKAGE_PATH/bin/activate"
     DEFAULT_CMD="$MAIN_FILE $DEFAULT_ARGS"
+    VERSION_NUMBER=`cd $PPM_PATH && git log --oneline | wc -l | sed -e 's/^[ \t]*//'`
+    VERSION_TIME=`cd $PPM_PATH && git log -1 --pretty=format:"%ad"`
 }
 
 
@@ -145,10 +155,19 @@ start() {
 }
 
 
+show_version() {
+    echo "ppm $VERSION_NUMBER ($VERSION_TIME)"
+}
+
+
+upgrade() {
+    ( cd $PPM_PATH && git pull ) &&
+    show_version
+}
+
 ############################ main function #############################
 # no argument
 if [ $# = 0 ]; then
-
     show_usage
 fi
 
@@ -171,11 +190,25 @@ elif [ $1 == "start" -o $1 == "s" ]; then
         start ${*:2}        # all args except the first one
     fi
 # uninstall
-elif [ $1 == "uninstall" -o $1 == "u" ]; then
+elif [ $1 == "uninstall" ]; then
     if [ $# = 1 ]; then
         show_usage
     else
         uninstall ${*:2}    # all args except the first one
+    fi
+# version
+elif [ $1 == "--version" -o $1 == "-v" ]; then
+    if [ $# = 1 ]; then
+        show_version
+    else
+        show_usage
+    fi
+# upgrade
+elif [ $1 == "upgrade" ]; then
+    if [ $# = 1 ]; then
+        upgrade
+    else
+        show_usage
     fi
 # bad argument
 else
