@@ -6,10 +6,10 @@ ppm is just a wrapper of [Python venv](https://docs.Python.org/3/library/venv.ht
 
 ![](https://img.shields.io/badge/compatible-macOS-brightgreen)
 ![](https://img.shields.io/badge/compatible-Linux-orange)
-[![GitHub stars](https://img.shields.io/github/stars/Jiangyiqun/ppm)](https://github.com/Jiangyiqun/ppm/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/Jiangyiqun/ppm)](https://github.com/Jiangyiqun/ppm/network)
-[![GitHub issues](https://img.shields.io/github/issues/Jiangyiqun/ppm)](https://github.com/Jiangyiqun/ppm/issues)
-<!-- [![GitHub license](https://img.shields.io/github/license/Jiangyiqun/ppm)](https://github.com/Jiangyiqun/ppm) -->
+[![GitHub stars](https://img.shields.io/github/stars/Jiangyiqun/ppm)](https://github.com/jackjyq/ppm/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/Jiangyiqun/ppm)](https://github.com/jackjyq/ppm/network)
+[![GitHub issues](https://img.shields.io/github/issues/Jiangyiqun/ppm)](https://github.com/jackjyq/ppm/issues)
+<!-- [![GitHub license](https://img.shields.io/github/license/Jiangyiqun/ppm)](https://github.com/jackjyq/ppm) -->
 
 ## [Example](./articles/example.html)
 
@@ -24,13 +24,13 @@ Install ppm to current directory and add $PATH to system
 **bash user**
 
 ```shell
-git clone https://github.com/Jiangyiqun/ppm.git && cd ppm && echo "export PATH=\"\$PATH:$(pwd)\"" >> $HOME/.bashrc && source $HOME/.bashrc
+git clone https://github.com/jackjyq/ppm.git && cd ppm && echo "export PATH=\"\$PATH:$(pwd)\"" >> $HOME/.bashrc && source $HOME/.bashrc
 ```
 
 **zsh user**
 
 ```shell
-git clone https://github.com/Jiangyiqun/ppm.git && cd ppm && echo "export PATH=\"\$PATH:$(pwd)\"" >> $HOME/.zshrc && source $HOME/.zshrc
+git clone https://github.com/jackjyq/ppm.git && cd ppm && echo "export PATH=\"\$PATH:$(pwd)\"" >> $HOME/.zshrc && source $HOME/.zshrc
 ```
 
 ## [Usage](./articles/usage.html)
