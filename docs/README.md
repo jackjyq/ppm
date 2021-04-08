@@ -19,6 +19,8 @@ To manage Python virtual environment, using ppm(left) is easier than traditional
 
 ## [Setup](./articles/setup.html)
 
+Install ppm to current directory and add $PATH to system
+
 **bash user**
 
 ```shell
