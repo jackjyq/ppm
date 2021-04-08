@@ -15,7 +15,7 @@ ppm is just a wrapper of [Python venv](https://docs.Python.org/3/library/venv.ht
 
 To manage Python virtual environment, using ppm(left) is easier than traditional method(right)
 
-![](./images/compare.png)
+[![](./images/compare.png)](./images/compare.png)
 
 ## [Setup](./articles/setup.html)
 
